@@ -1,8 +1,6 @@
-FROM microsoft/dotnet:2.0-sdk AS build
-COPY . ./program2
-WORKDIR /program2/
-RUN dotnet build -c Release –o output
+FROM microsoft/dotnet:2.0-sdk
+COPY . ./program1
+WORKDIR /program1/
 
-FROM microsoft/dotnet:2.0-runtime AS runtime
-COPY --from=build /program2/output .
-ENTRYPOINT ["dotnet", "program1.dll"]
+RUN dotnet build -c Release
+ENTRYPOINT ["dotnet", "run", "-c", "Release", "--no-build"]
