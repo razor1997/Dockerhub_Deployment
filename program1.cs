@@ -7,7 +7,7 @@ namespace sample_app
         static void Main(string[] args)
         {
             Console.WriteLine("Witaj swiecie prosto z Dockera!");
-            Console.ReadKey();
+            while();
         }
     }
 }
